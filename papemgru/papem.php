@@ -7,12 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="jquery-3.5.1.min.js"></script>
   <script src="jquery.mask.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
 
   <script>
    function ValidaForm()
@@ -134,66 +129,7 @@ fab button{
   </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
-<link rel="canonical" href="/papem/node/38" />
-<link rel="shortlink" href="/papem/node/38" />
-<link rel="shortcut icon" href="https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/favicon.ico" type="image/vnd.microsoft.icon" />
   <title>Portal de Consignações | PAPEM</title>
-  <style>
-@import url("https://www.marinha.mil.br/papem/modules/system/system.base.css?qw56a0");
-</style>
-<style>
-@import url("https://www.marinha.mil.br/papem/sites/all/modules/comment/comment.css?qw56a0");
-@import url("https://www.marinha.mil.br/papem/modules/field/theme/field.css?qw56a0");
-@import url("https://www.marinha.mil.br/papem/sites/all/modules/node/node.css?qw56a0");
-@import url("https://www.marinha.mil.br/papem/sites/all/modules/search/search.css?qw56a0");
-@import url("https://www.marinha.mil.br/papem/sites/all/modules/views/css/views.css?qw56a0");
-@import url("https://www.marinha.mil.br/papem/sites/all/modules/ckeditor/css/ckeditor.css?qw56a0");
-@import url("https://www.marinha.mil.br/papem/sites/all/modules/media/modules/media_wysiwyg/css/media_wysiwyg.base.css?qw56a0");
-</style>
-<style>
-@import url("https://www.marinha.mil.br/papem/sites/all/modules/ctools/css/ctools.css?qw56a0");
-@import url("https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/css/color_scheme/white/styles.css?qw56a0");
-</style>
-<style>
-@import url("https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/css/style.css?qw56a0");
-</style>
-<style>
-@import url("https://www.marinha.mil.br/papem/sites/www.marinha.mil.br.papem/files/css_injector/css_injector_1.css?qw56a0");
-@import url("https://www.marinha.mil.br/papem/sites/www.marinha.mil.br.papem/files/css_injector/css_injector_2.css?qw56a0");
-@import url("https://www.marinha.mil.br/papem/sites/www.marinha.mil.br.papem/files/css_injector/css_injector_3.css?qw56a0");
-</style>
-  <!-- HTML5 element support for IE6-8 -->
-  <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-<script>window.jQuery || document.write("<script src='/papem/sites/all/modules/jquery_update/replace/jquery/1.9/jquery.js'>\x3C/script>")</script>
-<script src="https://www.marinha.mil.br/papem/misc/jquery-extend-3.4.0.js?v=1.9.1"></script>
-<script src="https://www.marinha.mil.br/papem/misc/jquery-html-prefilter-3.5.0-backport.js?v=1.9.1"></script>
-<script src="https://www.marinha.mil.br/papem/misc/jquery.once.js?v=1.2"></script>
-<script src="https://www.marinha.mil.br/papem/misc/drupal.js?qw56a0"></script>
-<script src="https://www.marinha.mil.br/papem/sites/www.marinha.mil.br.papem/files/languages/pt-br_A963MDGIEwz9I1f2rwbYq2R79hYr-hZ1pyU0m9-pjTc.js?qw56a0"></script>
-<script src="https://www.marinha.mil.br/papem/sites/all/modules/matomo/matomo.js?qw56a0"></script>
-<script>var _paq = _paq || [];(function(){var u=(("https:" == document.location.protocol) ? "https://analytics.mar.mil.br/" : "http://analytics.mar.mil.br/");_paq.push(["setSiteId", "36"]);_paq.push(["setTrackerUrl", u+"piwik.php"]);_paq.push(["setDoNotTrack", 1]);_paq.push(["trackPageView"]);_paq.push(["setIgnoreClasses", ["no-tracking","colorbox"]]);_paq.push(["enableLinkTracking"]);var d=document,g=d.createElement("script"),s=d.getElementsByTagName("script")[0];g.type="text/javascript";g.defer=true;g.async=true;g.src=u+"piwik.js";s.parentNode.insertBefore(g,s);})();</script>
-<script src="https://www.marinha.mil.br/papem/sites/all/modules/piwik/piwik.js?qw56a0"></script>
-<script>var _paq = _paq || [];(function(){var u=(("https:" == document.location.protocol) ? "https://analytics.mar.mil.br/" : "http://analytics.mar.mil.br/");_paq.push(["setSiteId", "36"]);_paq.push(["setTrackerUrl", u+"piwik.php"]);_paq.push(["setDoNotTrack", 1]);_paq.push(["trackPageView"]);_paq.push(["setIgnoreClasses", ["no-tracking","colorbox"]]);_paq.push(["enableLinkTracking"]);var d=document,g=d.createElement("script"),s=d.getElementsByTagName("script")[0];g.type="text/javascript";g.defer=true;g.async=true;g.src=u+"piwik.js";s.parentNode.insertBefore(g,s);})();</script>
-<script src="https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/js/highcontrast.js?qw56a0"></script>
-<script src="https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/js/mobile.js?qw56a0"></script>
-<script src="https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/bootstrap/js/affix.js?qw56a0"></script>
-<script src="https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/bootstrap/js/alert.js?qw56a0"></script>
-<script src="https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/bootstrap/js/button.js?qw56a0"></script>
-<script src="https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/bootstrap/js/carousel.js?qw56a0"></script>
-<script src="https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/bootstrap/js/collapse.js?qw56a0"></script>
-<script src="https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/bootstrap/js/dropdown.js?qw56a0"></script>
-<script src="https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/bootstrap/js/modal.js?qw56a0"></script>
-<script src="https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/bootstrap/js/tooltip.js?qw56a0"></script>
-<script src="https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/bootstrap/js/popover.js?qw56a0"></script>
-<script src="https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/bootstrap/js/scrollspy.js?qw56a0"></script>
-<script src="https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/bootstrap/js/tab.js?qw56a0"></script>
-<script src="https://www.marinha.mil.br/papem/sites/all/themes/contrib/govbr_theme/bootstrap/js/transition.js?qw56a0"></script>
-<script>jQuery.extend(Drupal.settings, {"basePath":"\/papem\/","pathPrefix":"","ajaxPageState":{"theme":"govbr_theme","theme_token":"RGVZgSsMLcgxlQO7ZhiWrfnZYJWAuDqGQpG3n6UyTrs","js":{"\/\/barra.brasil.gov.br\/barra.js":1,"sites\/all\/themes\/contrib\/bootstrap\/js\/bootstrap.js":1,"\/\/code.jquery.com\/jquery-1.9.1.js":1,"0":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"public:\/\/languages\/pt-br_A963MDGIEwz9I1f2rwbYq2R79hYr-hZ1pyU0m9-pjTc.js":1,"sites\/all\/modules\/matomo\/matomo.js":1,"1":1,"sites\/all\/modules\/piwik\/piwik.js":1,"2":1,"sites\/all\/themes\/contrib\/govbr_theme\/js\/highcontrast.js":1,"sites\/all\/themes\/contrib\/govbr_theme\/js\/mobile.js":1,"sites\/all\/themes\/contrib\/govbr_theme\/bootstrap\/js\/affix.js":1,"sites\/all\/themes\/contrib\/govbr_theme\/bootstrap\/js\/alert.js":1,"sites\/all\/themes\/contrib\/govbr_theme\/bootstrap\/js\/button.js":1,"sites\/all\/themes\/contrib\/govbr_theme\/bootstrap\/js\/carousel.js":1,"sites\/all\/themes\/contrib\/govbr_theme\/bootstrap\/js\/collapse.js":1,"sites\/all\/themes\/contrib\/govbr_theme\/bootstrap\/js\/dropdown.js":1,"sites\/all\/themes\/contrib\/govbr_theme\/bootstrap\/js\/modal.js":1,"sites\/all\/themes\/contrib\/govbr_theme\/bootstrap\/js\/tooltip.js":1,"sites\/all\/themes\/contrib\/govbr_theme\/bootstrap\/js\/popover.js":1,"sites\/all\/themes\/contrib\/govbr_theme\/bootstrap\/js\/scrollspy.js":1,"sites\/all\/themes\/contrib\/govbr_theme\/bootstrap\/js\/tab.js":1,"sites\/all\/themes\/contrib\/govbr_theme\/bootstrap\/js\/transition.js":1},"css":{"modules\/system\/system.base.css":1,"sites\/all\/modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/node\/node.css":1,"sites\/all\/modules\/search\/search.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/themes\/contrib\/govbr_theme\/css\/color_scheme\/white\/styles.css":1,"sites\/all\/themes\/contrib\/govbr_theme\/css\/style.css":1,"public:\/\/css_injector\/css_injector_1.css":1,"public:\/\/css_injector\/css_injector_2.css":1,"public:\/\/css_injector\/css_injector_3.css":1}},"matomo":{"trackMailto":1},"piwik":{"trackMailto":1},"urlIsAjaxTrusted":{"\/papem\/search\/node":true},"bootstrap":{"anchorsFix":"0","anchorsSmoothScrolling":"0","formHasError":1,"popoverEnabled":1,"popoverOptions":{"animation":1,"html":0,"placement":"right","selector":"","trigger":"click","triggerAutoclose":1,"title":"","content":"","delay":0,"container":"body"},"tooltipEnabled":1,"tooltipOptions":{"animation":1,"html":0,"placement":"auto left","selector":"","trigger":"hover focus","delay":0,"container":"body"}}});</script>
 
  </head>
  <link rel="stylesheet" href="w3.css">
@@ -376,11 +312,6 @@ fab button{
            <label style="display:none; margin:10px; margin-left:-550px;" id="sisresSC5" ></label>
 		   <label style="display:none; margin:10px; margin-left:-550px;" id="sisresOutros5" ></label>
 		   <br>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="https://netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
-
- 
 <input class="form-control" placeholder="Processo de pagamento do recebimento indevido" type="text" style="display:none; width: 950px; height: 38px; margin-left: 25px; padding: 8px 12px;" id="servidor4" name="servidor4">
 
 <script>
