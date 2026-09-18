@@ -744,21 +744,21 @@ for (var i = 0; i < 20; i++) {
    var campos2 = document.querySelector(dados2);
    var story = document.querySelector("#storyPP");
    var parcela = document.querySelector("#parceladevol");
-   var parcela = document. querySelector("#parceladevol");
-   var Oc = document.querySelector("#UPAG");
+   var UPAG = document.querySelector("#UPAG");
+   var Oc = document.querySelector("#Oc");
    var OmRecolhedora = document.querySelector("#OmRecolhedora");
    var tributavel1 = document.querySelector("#tributavel1");
    var tributavel2 = document.querySelector("#tributavel2");
    var ntribuavel1 = document.querySelector("#ntribuavel1");
    var ntribuavel2 = document.querySelector("#ntributavel2");
-   var btnconfirmar = document.querySelector("#btnConfirmar");
-   
+   var btnConfirmar = document.querySelector("#btnConfirmar");
+
    campos.style.display = "inline";
    campos2.style.display = "none";
    story.style.display = "inline";
-   parcela.style.display= "none";
    parcela.style.display = "none";
-   Oc.style.display = "inline";
+   UPAG.style.display = "inline";
+   Oc.style.display = "none";
    OmRecolhedora.style.display = "inline";
    tributavel1.style.display = "inline";
    tributavel2.style.display = "inline";
