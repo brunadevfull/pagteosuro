@@ -1,6 +1,46 @@
 <?php
  //responsavel pela comunicação com o pagTesouro (feito atraves da aplicação da DGOM)
 class PagTesouro{
+
+	// envia $data (ja montado por cada funcao de servico) pro PagTesouro e trata a resposta;
+	// bloco identico que estava duplicado nas 5 funcoes de servico
+	private function chamarPagTesouro($url, $chave, $data){
+	$data_string = json_encode($data);
+	$ch = curl_init($url);
+	//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 1);
+	//curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+	curl_setopt ($ch, CURLOPT_CAINFO, "MarinhadoBrasilAutoridadeCertificadoradaRECIM-chain.pem");
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Authorization: Bearer '.$chave));
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$result = curl_exec($ch);
+
+	if ($result === false)
+	{
+	 echo 'Erro: '.curl_error($ch);
+	}
+	else
+	{
+	 $result=json_decode($result);
+	 if (is_array($result))
+	 {
+	  $i=1;
+	  while ($i<=count($result))
+	  {
+	   echo '<p style="text-align:center;">ERRO: '.$result[$i-1]->{'codigo'}."-".$result[$i-1]->{'descricao'}.'<br>';
+	   $i++;
+	  }
+	  echo '<a href="javascript:history.back()">Voltar</a><p>';
+	 }
+	 else
+	 {
+	  echo '<script type="text/javascript">window.open(\''.$result->{'proximaUrl'}.'\', \'_blank\');</script>';
+	  echo '<script type="text/javascript">history.back();</script>';
+	 }
+	}
+	}
+
 	function servidorCivil($nome,$vencimento,$cpfcnpj,$valor, $valorB, $codRubrica, $nomeRubrica, $tipotributo, $nome_OM, $nome_OC, $motivostoryPP, $competenciaDate, $natureza_despesa, $servidor_MatSIAPE){
 		$chave="eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI3NzMyMDAifQ.X92vQ2oBESAPKtPYj_1eLFengD7eSUhPUGuBagEHUaX6mVuQ55trbQEHecEXqqi1KSgeQXXY70Rmn1M4FvwjIBbQN9xYAf-NEuVVPq9-QGJy58GK8AcYUrlJCsayIplPJuc6kB7Os6YCvN7c59OC38ATVCcuLBx6u5c3jZ3reZSk0dkBUBMDXJyr4wqhHWEZPtl-JFGBswCyvXUh8XLbOAyj98_n-B_7tS5b-K5-SBu7nbhaweSJ0Z4gLwxp1QYwTJqJzgRX6LKfDb0TEjLLKkYw9CS2uDX9IPEzN1K618HzXnM6tLvZh80kM34d91-rc4W785IhzIC-CwR-4h_HHA";
 $url = 'https://pagtesouro.dgom.mb:3000/handle';
@@ -118,44 +158,11 @@ $data = array(
   "NatDev" => $natureza_despesa
   
 );      
-$data_string = json_encode($data);
-$ch = curl_init($url);
-//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 1);
-//curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-curl_setopt ($ch, CURLOPT_CAINFO, "MarinhadoBrasilAutoridadeCertificadoradaRECIM-chain.pem");
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Authorization: Bearer '.$chave));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$result = curl_exec($ch);
+$this->chamarPagTesouro($url, $chave, $data);
 
-if ($result === false)
-{
- echo 'Erro: '.curl_error($ch);
-}            
-else
-{
- $result=json_decode($result);
- if (is_array($result))
- {
-  $i=1;
-  while ($i<=count($result))
-  {
-   echo '<p style="text-align:center;">ERRO: '.$result[$i-1]->{'codigo'}."-".$result[$i-1]->{'descricao'}.'<br>';
-   $i++;
-  }
-  echo '<a href="javascript:history.back()">Voltar</a><p>';
- }
- else
- {
-  echo '<script type="text/javascript">window.open(\''.$result->{'proximaUrl'}.'\', \'_blank\');</script>';
-  echo '<script type="text/javascript">history.back();</script>';
- }
-}
-		
 	}
-	
-	
+
+
 	function militarAtivo($nome, $vencimento, $cpfcnpj, $Nip, $ValorRecolhido, $ValorRecolhidoB, $ParcelaDevolvidas, $codRubrica, $nomeRubrica, $tipotributo, $nome_OM, $nome_OC, $motivostoryPP, $competenciaDate, $natureza_despesa){
 		$chave="eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI3NzMyMDAifQ.X92vQ2oBESAPKtPYj_1eLFengD7eSUhPUGuBagEHUaX6mVuQ55trbQEHecEXqqi1KSgeQXXY70Rmn1M4FvwjIBbQN9xYAf-NEuVVPq9-QGJy58GK8AcYUrlJCsayIplPJuc6kB7Os6YCvN7c59OC38ATVCcuLBx6u5c3jZ3reZSk0dkBUBMDXJyr4wqhHWEZPtl-JFGBswCyvXUh8XLbOAyj98_n-B_7tS5b-K5-SBu7nbhaweSJ0Z4gLwxp1QYwTJqJzgRX6LKfDb0TEjLLKkYw9CS2uDX9IPEzN1K618HzXnM6tLvZh80kM34d91-rc4W785IhzIC-CwR-4h_HHA";
 $url = 'https://pagtesouro.dgom.mb:3000/handle';
@@ -290,43 +297,10 @@ $data = array(
   "tema" => "tema-light",
   "NatDev" => $natureza_despesa
 );   
-$data_string = json_encode($data);
-$ch = curl_init($url);
-//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 1);
-//curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-curl_setopt ($ch, CURLOPT_CAINFO, "MarinhadoBrasilAutoridadeCertificadoradaRECIM-chain.pem");
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Authorization: Bearer '.$chave));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$result = curl_exec($ch);
+$this->chamarPagTesouro($url, $chave, $data);
 
-if ($result === false)
-{
- echo 'Erro: '.curl_error($ch);
-}            
-else
-{
- $result=json_decode($result);
- if (is_array($result))
- {
-  $i=1;
-  while ($i<=count($result))
-  {
-   echo '<p style="text-align:center;">ERRO: '.$result[$i-1]->{'codigo'}."-".$result[$i-1]->{'descricao'}.'<br>';
-   $i++;
-  }
-  echo '<a href="javascript:history.back()">Voltar</a><p>';
- }
- else
- {
-  echo '<script type="text/javascript">window.open(\''.$result->{'proximaUrl'}.'\', \'_blank\');</script>';
-  echo '<script type="text/javascript">history.back();</script>';
- }
-}
-	
 	}
-	
+
 
 function sisresOutros($nome,$cpfcnpj, $nip, $nome_OC, $valor, $valorB, $nome_OM, $motivostory, $natureza_despesa){
 		$chave="eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI3NzMyMDAifQ.X92vQ2oBESAPKtPYj_1eLFengD7eSUhPUGuBagEHUaX6mVuQ55trbQEHecEXqqi1KSgeQXXY70Rmn1M4FvwjIBbQN9xYAf-NEuVVPq9-QGJy58GK8AcYUrlJCsayIplPJuc6kB7Os6YCvN7c59OC38ATVCcuLBx6u5c3jZ3reZSk0dkBUBMDXJyr4wqhHWEZPtl-JFGBswCyvXUh8XLbOAyj98_n-B_7tS5b-K5-SBu7nbhaweSJ0Z4gLwxp1QYwTJqJzgRX6LKfDb0TEjLLKkYw9CS2uDX9IPEzN1K618HzXnM6tLvZh80kM34d91-rc4W785IhzIC-CwR-4h_HHA";
@@ -447,40 +421,7 @@ $data = array(
   "tema" => "tema-light",
   "NatDev" => $natureza_despesa
 );    
-$data_string = json_encode($data);
-$ch = curl_init($url);
-//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 1);
-//curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-curl_setopt ($ch, CURLOPT_CAINFO, "MarinhadoBrasilAutoridadeCertificadoradaRECIM-chain.pem");
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Authorization: Bearer '.$chave));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$result = curl_exec($ch);
-
-if ($result === false)
-{
- echo 'Erro: '.curl_error($ch);
-}            
-else
-{
- $result=json_decode($result);
- if (is_array($result))
- {
-  $i=1;
-  while ($i<=count($result))
-  {
-   echo '<p style="text-align:center;">ERRO: '.$result[$i-1]->{'codigo'}."-".$result[$i-1]->{'descricao'}.'<br>';
-   $i++;
-  }
-  echo '<a href="javascript:history.back()">Voltar</a><p>';
- }
- else
- {
-  echo '<script type="text/javascript">window.open(\''.$result->{'proximaUrl'}.'\', \'_blank\');</script>';
-  echo '<script type="text/javascript">history.back();</script>';
-  }
- }
+$this->chamarPagTesouro($url, $chave, $data);
 }
 
 function sisresSC($nome,$cpfcnpj, $nip, $valor, $valorB,$nome_OC, $nome_OM, $motivostory, $natureza_despesa){
@@ -602,40 +543,7 @@ $data = array(
   "tema" => "tema-light",
   "NatDev" => $natureza_despesa
 );    
-$data_string = json_encode($data);
-$ch = curl_init($url);
-//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 1);
-//curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-curl_setopt ($ch, CURLOPT_CAINFO, "MarinhadoBrasilAutoridadeCertificadoradaRECIM-chain.pem");
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Authorization: Bearer '.$chave));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$result = curl_exec($ch);
-
-if ($result === false)
-{
- echo 'Erro: '.curl_error($ch);
-}            
-else
-{
- $result=json_decode($result);
- if (is_array($result))
- {
-  $i=1;
-  while ($i<=count($result))
-  {
-   echo '<p style="text-align:center;">ERRO: '.$result[$i-1]->{'codigo'}."-".$result[$i-1]->{'descricao'}.'<br>';
-   $i++;
-  }
-  echo '<a href="javascript:history.back()">Voltar</a><p>';
- }
- else
- {
-  echo '<script type="text/javascript">window.open(\''.$result->{'proximaUrl'}.'\', \'_blank\');</script>';
-  echo '<script type="text/javascript">history.back();</script>';
-  }
- }
+$this->chamarPagTesouro($url, $chave, $data);
 }
 
 function recAtivosB($nome_recAtivos, $cpf_recAtivos, $nip_recAtivos,$exAnterior,$exAtual,$valor_recAtivos, $motivostory, $natureza_despesa){
@@ -759,40 +667,7 @@ $data = array(
   "valorExercAtual" => $exAtual
   
 );    
-$data_string = json_encode($data);
-$ch = curl_init($url);
-//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 1);
-//curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
-curl_setopt ($ch, CURLOPT_CAINFO, "MarinhadoBrasilAutoridadeCertificadoradaRECIM-chain.pem");
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Authorization: Bearer '.$chave));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$result = curl_exec($ch);
-
-if ($result === false)
-{
- echo 'Erro: '.curl_error($ch);
-}            
-else
-{
- $result=json_decode($result);
- if (is_array($result))
- {
-  $i=1;
-  while ($i<=count($result))
-  {
-   echo '<p style="text-align:center;">ERRO: '.$result[$i-1]->{'codigo'}."-".$result[$i-1]->{'descricao'}.'<br>';
-   $i++;
-  }
-  echo '<a href="javascript:history.back()">Voltar</a><p>';
- }
- else
- {
-  echo '<script type="text/javascript">window.open(\''.$result->{'proximaUrl'}.'\', \'_blank\');</script>';
-  echo '<script type="text/javascript">history.back();</script>';
-  }
- }
+$this->chamarPagTesouro($url, $chave, $data);
 }
 
 function validarCPF($cpf) {
