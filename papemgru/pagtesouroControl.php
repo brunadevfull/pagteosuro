@@ -24,8 +24,8 @@ if(!empty($_POST['TipoTributo'])){
 	} 
 if($_POST['situacaoFuncional'] == "servidorCivil"){
 	$codRubrica = $_POST['ParcelasDevolvidasCodR'];
-	$nomeRubrica = $_POST['ParcelasDevolvidasNomeR'];
-}else{	
+	$nomeRubrica = $_POST['ParcelasDevolvidasNomeR'] ?? '';
+}else{
 $parcelaDevolvida = $_POST['ParcelasDevolvidas'];
 $parcela = explode("-",$parcelaDevolvida);
 echo $codRubrica = $parcela[0];
@@ -105,7 +105,7 @@ switch($sf){
 //tratamento feito, só falta mexer o nome das variaveis referente a rubrica
 $parcelaRubrica = explode("-",$codRubrica);
 echo $codRubrica = $parcelaRubrica[0];
-echo $nomeRubrica = $parcelaRubrica[1];
+echo $nomeRubrica = $parcelaRubrica[1] ?? '';
 $validador = new PagTesouro;
 echo $validador->validarCPF($S_cpfcnpj);		
 $servidorC->servidorCivil($S_nome, $S_vencimento, $S_cpfcnpj, $S_valor, $S_valorB, $codRubrica, $nomeRubrica, $tipotributo, $nome_OM, $nome_OC, $motivostoryPP, $competenciaDate, $natureza_despesa, $servidor_MatSIAPE);	
@@ -176,10 +176,11 @@ $servidorC->servidorCivil($S_nome, $S_vencimento, $S_cpfcnpj, $S_valor, $S_valor
 			$controlador_de_pagamento = "não existe divida futura";
 		}		
 	}else if($pieces[1] == 12){
-		$controlador_de_pagamento = 1;		
+		$controlador_de_pagamento = 1;
 	}else{
 		$controlador_de_pagamento = 2;
-	
+	}
+
 	$DataCompetencia = explode("-",$_POST['ativa4']);
     $competenciaDate =$DataCompetencia[0].$DataCompetencia[1];
 	$natureza_despesa = "Pagamento de Pessoal";
@@ -204,14 +205,13 @@ $servidorC->servidorCivil($S_nome, $S_vencimento, $S_cpfcnpj, $S_valor, $S_valor
 		echo "<br>15:".$natureza_despesa;
 	 $servidorA->militarAtivo($A_nome, $A_vencimento, $A_cpfcnpj, $A_Nip, $A_ValorRecolhido, $A_ValorRecolhidoB, $A_ParcelaDevolvidas, $codRubrica, $nomeRubrica, $tipotributo, $nome_OM, $nome_OC, $motivostoryPP, $competenciaDate, $natureza_despesa);
 	}else{
-	 header("location:https://10.1.129.16/papemgru/papem.php?erro=Nip");	
+	 header("location:https://10.1.129.16/papemgru/papem.php?erro=Nip");
 	}
 	}else{
-		header("location:https://10.1.129.16/papemgru/papem.php?erro=Cpf");	
+		header("location:https://10.1.129.16/papemgru/papem.php?erro=Cpf");
 	}
-	
+
 	break;
-}	
 }}
 if($control == "recAtivos"){
 	
