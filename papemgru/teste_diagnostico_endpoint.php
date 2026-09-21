@@ -18,9 +18,9 @@
 // ============================================
 $url = 'https://pagtesouro.dgom.mb:3000/handle';
 
-// Token novo (o mesmo usado em testegru.php). Troque para testar o antigo:
-// hCTTOPrhcuSEc9wtzzzy4WLm9CCo4ZqSYgeulNKNqkcuKgN2es3EuA8mnKY6ybHhKsNwOC35HNM_L8-ayEE8Jz25NUjrlyzHUHzGcdgVX9P2vA4WUt4hqGj0KF0TLfK4yJnqoqef7PEeo1zQp5hGveVo5xYjj-jCI5tSZTYhDeK0ccepgPNhVQ5PuFIhT7ViPj8MUKe0qMBc-djIvGr1r3DGk5nBjAMatk00vXVfiJPTgJquhXoTTRQfYRvZd44o8lFYlnkSWO3KhF7sQSAG5sTnF9TBsWi9czwzwr2dYCwEJ8600eLeMDDlaYhajl8DHRoIaAnvxt32fIe5Wwd_Cw
-$chave = "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI3NzMyMDAifQ.X92vQ2oBESAPKtPYj_1eLFengD7eSUhPUGuBagEHUaX6mVuQ55trbQEHecEXqqi1KSgeQXXY70Rmn1M4FvwjIBbQN9xYAf-NEuVVPq9-QGJy58GK8AcYUrlJCsayIplPJuc6kB7Os6YCvN7c59OC38ATVCcuLBx6u5c3jZ3reZSk0dkBUBMDXJyr4wqhHWEZPtl-JFGBswCyvXUh8XLbOAyj98_n-B_7tS5b-K5-SBu7nbhaweSJ0Z4gLwxp1QYwTJqJzgRX6LKfDb0TEjLLKkYw9CS2uDX9IPEzN1K618HzXnM6tLvZh80kM34d91-rc4W785IhzIC-CwR-4h_HHA";
+// Defina o token via variavel de ambiente (PAGTESOURO_BEARER_TOKEN) ou
+// substitua manualmente o placeholder abaixo para diagnostico local.
+$chave = getenv('PAGTESOURO_BEARER_TOKEN') ?: "******";
 
 // Permite trocar o codigoServico direto na URL para comparar as 3 hipoteses:
 // 1541 (o que o codigo usa hoje no branch H) | 11859 (pessoal, visto em outras copias) | 11860 (SISRES)
